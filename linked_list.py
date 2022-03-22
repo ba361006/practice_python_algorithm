@@ -29,21 +29,42 @@ class LinkedList:
         previous.next = Node(data)
     
     def insert(self, index, data):
-        pass
+        inserted_node = Node(data)
+        if self.head:
+            node = self.head
+            counter = 0
+            if index == 0:
+                inserted_node.next = node
+                self.head = inserted_node
+                return
+            while(index >= counter + 1):
+                previous = node
+                node = previous.next
+                counter +=1
+            previous.next = inserted_node
+            inserted_node.next = node
 
-# n1 = Node(1)
-# n2 = Node(2)
-# n3 = Node(3)
-# n1.next = n2
-# n2.next = n3
+        else:
+            self.head = inserted_node
+            
 
-# linked_list = LinkedList()
-# linked_list.head = n1
-# linked_list.show()
+n1 = Node(1)
+n2 = Node(2)
+n3 = Node(3)
+n1.next = n2
+n2.next = n3
 
-# print()
-# # linked_list.beginning(4)
+linked_list = LinkedList()
+linked_list.head = n1
 # # linked_list.show()
 
-# linked_list.ending(5)
-# linked_list.show()
+# # print()
+# # # linked_list.beginning(4)
+# # # linked_list.show()
+
+# # linked_list.ending(5)
+# # linked_list.show()
+
+
+linked_list.insert(3,44)
+linked_list.show()
